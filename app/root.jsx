@@ -1,5 +1,4 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -9,8 +8,13 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+import globalStyles from "./styles/global.css";
+
+export const links = () => [
+  {
+    rel: "stylesheet",
+    href: globalStyles,
+  },
 ];
 
 function Layout() {
@@ -24,7 +28,7 @@ function Layout() {
         <p>&copy; Copyright 2024 peidev. Con mucho amor</p>
       </footer>
     </>
-  )
+  );
 }
 
 export default function App() {
