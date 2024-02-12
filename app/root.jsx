@@ -1,5 +1,5 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -15,18 +15,26 @@ export const links = () => [
     rel: "stylesheet",
     href: globalStyles,
   },
+  {
+    rel: "stylesheet",
+    href: "https://cdn.simplecss.org/simple.min.css",
+  },
 ];
 
 function Layout() {
   return (
     <>
-      <header>
-        <h1>peigDev! </h1>
-      </header>
-      <Outlet />
-      <footer>
-        <p>&copy; Copyright 2024 peidev. Con mucho amor</p>
-      </footer>
+      <main>
+        <header>
+          <Link to={"/"}>
+            <h1>PeigDev!🔥 </h1>
+          </Link>
+        </header>
+        <Outlet />
+        <footer>
+          <small>&copy; Copyright 2024 Peigdev. Hecho con mucho amor ❤️</small>
+        </footer>
+      </main>
     </>
   );
 }
